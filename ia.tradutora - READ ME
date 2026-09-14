@@ -1,0 +1,78 @@
+ 🌐 IA Tradutora
+
+Uma API de tradução de textos usando *LangChain, **Google Gemini* e *LangServe*. Traduz qualquer texto para o idioma que você escolher, usando um modelo de linguagem da Google.
+
+ ✨ Funcionalidades
+
+- Tradução de texto para qualquer idioma via IA generativa (Gemini)
+- Chain dinâmica do LangChain com template de prompt reutilizável (idioma + texto como variáveis)
+- API pronta pra uso, servida com FastAPI + LangServe
+- Playground interativo para testar as traduções direto no navegador
+
+ 🛠️ Tecnologias
+
+- [Python](https://www.python.org/)
+- [LangChain](https://www.langchain.com/) + [langchain-google-genai](https://pypi.org/project/langchain-google-genai/)
+- [Google Gemini API](https://ai.google.dev/)
+- [FastAPI](https://fastapi.tiangolo.com/)
+- [LangServe](https://python.langchain.com/docs/langserve)
+- [python-dotenv](https://pypi.org/project/python-dotenv/)
+
+ 📁 Estrutura do projeto
+
+
+.
+├── ia_tradutora.py     # Lógica principal: chain de tradução com LangChain + Gemini
+├── servidor.py         # Servidor FastAPI/LangServe que expõe a chain como API
+├── requirements.txt    # Dependências do projeto
+├── .env                # Chave da API (não sobe pro GitHub)
+└── .gitignore
+
+
+ 🚀 Como rodar o projeto
+
+ 1. Clone o repositório
+
+bash
+git clone https://github.com/emanuelyffrs/tradutor-ia-langchain-gemini.git
+cd tradutor-ia-langchain-gemini
+
+
+ 2. Instale as dependências
+
+bash
+pip install -r requirements.txt
+
+
+ 3. Configure sua chave da API do Gemini
+
+Crie uma chave gratuita em [Google AI Studio](https://aistudio.google.com/apikey).
+
+Crie um arquivo .env na raiz do projeto com o seguinte conteúdo:
+
+
+GOOGLE_API_KEY=sua_chave_aqui
+
+
+> ⚠️ Nunca compartilhe ou suba esse arquivo para o GitHub — ele já está protegido pelo .gitignore.
+
+ 4. Rode o servidor
+
+bash
+python servidor.py
+
+
+ 5. Acesse o playground
+
+Com o servidor rodando, abra no navegador:
+
+
+http://localhost:8000/tradutor/playground/
+
+
+Digite o texto e o idioma de destino, e veja a tradução em tempo real.
+
+ 📌 Observações
+
+- Este projeto usa a camada gratuita da API do Gemini, que possui limites diários de requisições.
+- Desenvolvido como projeto de estudo, aplicando conceitos de LangChain (prompt templates, chains e integração com LLMs).
